@@ -1,0 +1,39 @@
+# 草稿/实验区:整体忽略,仅保留说明文件
+scratch/*
+!scratch/README.md
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 编辑器/IDE
+.vscode/
+.idea/
+*.swp
+
+# 环境与密钥
+.env
+.env.local
+*.local
+
+# 日志与临时产物
+*.log
+tmp/
+.tmp/
+
+# ——— 选型后按需启用(取消注释,或删掉不相关的)———
+# 依赖与构建产物
+# node_modules/
+# dist/
+# build/
+# __pycache__/
+# .venv/
+# target/
+# 大文件:媒体 / 模型权重(避免仓库膨胀)
+# *.mp3
+# *.wav
+# *.mp4
+# *.mov
+# *.gguf
+# *.bin
+# *.onnx

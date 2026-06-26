@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibe Project Foundation"
+  short_description: "为新的 Vibe Coding 项目搭建开发前地基"
+  default_prompt: "帮我为这个新项目搭建开发前地基。"
