@@ -10,7 +10,7 @@ venv/
 .env.*
 !.env.example
 tmp/
-scratch/
-dist/
-build/
+/scratch/
+/dist/
+/build/
 *.egg-info/
