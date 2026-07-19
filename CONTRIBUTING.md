@@ -23,7 +23,7 @@ bash scripts/verify_scaffold.sh
 推荐同时运行：
 
 ```bash
-python3 /Users/aiden/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
+python3 "$HOME/.codex/skills/.system/skill-creator/scripts/quick_validate.py" .
 ```
 
 ## Pull Request 检查清单
