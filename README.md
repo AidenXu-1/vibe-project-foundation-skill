@@ -105,7 +105,7 @@ bash scripts/verify_scaffold.sh
 运行 Skill 基础校验：
 
 ```bash
-python3 /Users/aiden/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
+python3 "$HOME/.codex/skills/.system/skill-creator/scripts/quick_validate.py" .
 ```
 
 期望结果：
