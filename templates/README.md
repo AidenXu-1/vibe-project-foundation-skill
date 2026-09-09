@@ -31,7 +31,7 @@
 2. 读 [`docs/agent-guide.md`](docs/agent-guide.md) —— AI 协作规则与安全边界。
 3. 读 [`docs/roadmap.md`](docs/roadmap.md) —— 阶段地图。
 4. 想了解进展,看 [`docs/progress.md`](docs/progress.md)。
-5. 接手项目 / 换设备继续,先读 [`docs/handoff.md`](docs/handoff.md)。
+5. 接手或换设备时，按 [`docs/agent-guide.md`](docs/agent-guide.md) 的接班入口恢复；未启用协作层时读 [`docs/handoff.md`](docs/handoff.md)。
 
 ## 当前阶段
 

@@ -12,11 +12,11 @@
 | [`spec/`](spec/) | 单个功能的细分规格模板 | 需要拆复杂功能时 |
 | [`mvp.md`](mvp.md) | MVP 辅助说明:第一个能用的版本是什么样 | 很少,以 spec.md 为准 |
 | [`roadmap.md`](roadmap.md) | 里程碑 / 路线图 | 每个阶段结束时 |
-| [`progress.md`](progress.md) | 进度日志:做了什么、卡在哪 | 经常(每次有进展) |
-| [`handoff.md`](handoff.md) | 交接文档:换人 / 换设备如何续上 | 每次要中断时 |
+| [`progress.md`](progress.md) | 进度日志:做了什么、卡在哪 | 范围、里程碑、阻断或接班信息变化时 |
+| [`handoff.md`](handoff.md) | 项目环境与接续指针 | 需要交接且信息变化时 |
 | [`conventions.md`](conventions.md) | 编码约定与护栏 | 选型后补充 |
 | [`decisions/`](decisions/) | 架构决策记录(ADR):为什么这么选 | 每做一个重要技术决策 |
 
 ## 一条原则
 
-> 开发时以 `spec.md` 为准。其他文档如果和 Spec 冲突,先更新 Spec,再同步相关文档。
+> 以用户已确认的要求和 `spec.md` 为准。辅助文档有误时修辅助文档；用户已确认新要求时更新 Spec 并同步相关内容。无法判断哪项有效时再确认，不能只为消除差异改写需求。
