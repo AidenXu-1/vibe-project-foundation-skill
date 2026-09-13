@@ -91,7 +91,7 @@ else
       -c user.email="${GIT_AUTHOR_EMAIL:-$(git config user.email 2>/dev/null || echo dev@local)}" \
       commit -q -m "chore: 搭建开发前地基($NAME)
 
-- docs/: Spec、Agent 规则、总览、路线图、进度、交接、规格模板、ADR 决策记录、约定
+- docs/: Spec、Agent 规则、路线图、当前工作说明、规格模板、ADR 决策记录、约定
 - design/: 竞品参考、UI 稿、素材
 - app/: 占位(待 Spec 和风险检查后 Kickoff 初始化)
 - AGENTS.md + CLAUDE.md + agent-guide + scratch/ + .gitignore: 接入 vibecoding 工作流"

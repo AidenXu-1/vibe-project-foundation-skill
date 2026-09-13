@@ -17,7 +17,7 @@ description: 为需要通用工程地基的新软件产品初始化项目，适�
 ├── AGENTS.md     # 通用 Agent 工作入口(Codex / Copilot 等)
 ├── README.md     # 人类入口与导航
 ├── .gitignore
-├── docs/         # 想清楚:spec / agent-guide / overview / roadmap / progress / handoff / conventions / decisions/
+├── docs/         # 想清楚:spec / agent-guide / roadmap / progress / conventions / decisions/
 ├── app/          # 做出来(占位,待 Kickoff 后初始化)
 ├── design/       # 长什么样:references / ui / assets
 └── scratch/      # 实验区(git 忽略)
@@ -61,7 +61,7 @@ bash <本skill目录>/scaffold.sh "<目标目录>" "<项目名>" "<项目一句�
 
 ### 4. 验证
 - 跑 `git -C <目标> ls-files` 确认文件齐全,尤其确认 `AGENTS.md`、`CLAUDE.md`、`docs/agent-guide.md`、`docs/spec.md` 存在。
-- 用 `scratch/` 放一个临时文件,确认被 `.gitignore` 忽略(`git status` 不显示)。
+- 用 `scratch/` 放一个临时文件,确认被 `.gitignore` 忽略(`git status` 不显示)。将实际核验结果更新到 `docs/progress.md`。
 
 ### 5. 收尾汇报
 按实际结果简述生成结构与验证情况，仅在确认初始提交存在后称 Git 初始化完成。下一步是写 Spec v0；技术选型留到 Spec 和风险检查之后。
@@ -71,6 +71,6 @@ bash <本skill目录>/scaffold.sh "<目标目录>" "<项目名>" "<项目一句�
 - 这是**新项目地基**,不是改造已有代码库的工具。已有项目请勿用它覆盖。
 - 全程保持技术无关:不预设框架、不建语言相关目录,避免 Spec 未稳定就返工。
 - 占位符内容(`(待填)`)是给用户后续填的,不要擅自替用户拍板需求或边界。
-- `docs/spec.md` 是后续开发的唯一准绳;`overview.md`、`mvp.md` 等是辅助说明,若冲突以 Spec 为准并提示用户同步修正。
+- `docs/spec.md` 是后续开发的唯一准绳;项目首页、`roadmap.md` 等是辅助说明,若冲突以 Spec 为准并提示用户同步修正。
 - 后续开发的实现取舍与设计预览规则统一放在 `templates/docs/agent-guide.md`,入口和设计目录只引用,不另加一套流程或要求安装其他 Skill。
 - 模板可按需演进:直接编辑 `templates/` 下文件即可影响以后所有新项目。

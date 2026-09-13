@@ -1,6 +1,6 @@
 # decisions —— 架构决策记录(ADR)
 
-> ADR = Architecture Decision Record。每做一个**以后会被反复追问"当初为什么这么选"**的决定,就在这留一条。
+> ADR = Architecture Decision Record。重要技术选择单独记录理由；普通实现细节不另建决策文档。
 > 一个决策一个文件,编号递增。复制 [`_template.md`](_template.md) 开始。
 
 ## 为什么要这个

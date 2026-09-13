@@ -2,6 +2,8 @@
 
 > {{ONE_LINER}}
 
+产品需求与边界见 [`docs/spec.md`](docs/spec.md)。
+
 本仓库采用「三层物理隔离 + AI 工作层」的方式管理:把**想清楚 / 做出来 / 长什么样**分开,并为不同 AI agent 提供统一入口。
 
 ## 仓库结构
@@ -11,7 +13,7 @@
 ├── CLAUDE.md         ← AI 工作入口(Claude Code 自动加载)
 ├── AGENTS.md         ← 通用 Agent 工作入口(Codex / Copilot 等)
 ├── README.md         ← 你在这里:项目总入口与导航
-├── docs/             ← 规划与管理:spec、agent-guide、overview、roadmap、progress、handoff、决策记录
+├── docs/             ← 规划与管理:spec、agent-guide、roadmap、progress、决策记录
 ├── app/              ← 应用本体代码(地基阶段仅占位)
 ├── design/           ← 设计与 UI 参考
 └── scratch/          ← 草稿/实验区(git 忽略)
@@ -30,9 +32,5 @@
 1. 读 [`docs/spec.md`](docs/spec.md) —— 当前唯一开发准绳。
 2. 读 [`docs/agent-guide.md`](docs/agent-guide.md) —— AI 协作规则与安全边界。
 3. 读 [`docs/roadmap.md`](docs/roadmap.md) —— 阶段地图。
-4. 想了解进展,看 [`docs/progress.md`](docs/progress.md)。
-5. 接手或换设备时，按 [`docs/agent-guide.md`](docs/agent-guide.md) 的接班入口恢复；未启用协作层时读 [`docs/handoff.md`](docs/handoff.md)。
-
-## 当前阶段
-
-🟡 **地基搭建** —— 目录与文档骨架已就位,尚未进入需求与编码。下一步是写 [`docs/spec.md`](docs/spec.md) 的 v0 草案。
+4. 想了解当前工作,看 [`docs/progress.md`](docs/progress.md)。接续中断工作按 `agent-guide.md` 的读取策略恢复。
+5. 安装、启动与验证方法见 [`app/README.md`](app/README.md)，在 Kickoff 时补齐。
