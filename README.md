@@ -1,113 +1,44 @@
-# vibe-project-foundation
+# Vibe 项目地基
 
-为新的 Vibe Coding / 软件产品项目搭建**开发前地基**的 Agent Skill：铺好项目骨架、文档体系、AI 工作入口和 Git 安全网，再进入 Spec 与开发。
+给从零开始、需要长期维护的软件项目搭地基。把你已经说清的使用场景、验收办法和下一步留在项目里，换一次对话，下一位助手也能接着做。
 
-它不是用来直接写功能代码的，也不替你决定技术栈——它负责在动手之前，把"想清楚、做出来、长什么样"三件事的位置和规范定下来。
+[下载 v1.2.0 安装包](https://github.com/AidenXu-1/vibe-project-foundation-skill/releases/download/v1.2.0/vibe-project-foundation-v1.2.0.zip) · [版本说明](https://github.com/AidenXu-1/vibe-project-foundation-skill/releases/tag/v1.2.0)
 
-## 它解决什么问题
+## 安装到 Codex
 
-新项目一上来就写代码，通常会出现：目录乱、AI 每次都要重新交代一遍规则、临时实验混进主分支、Spec 写在哪全靠记性。这个 Skill 把第一次初始化的动作固化下来：
+解压安装包，将其中的 `vibe-project-foundation` 文件夹放进 `~/.codex/skills/`。安装完成后，在下一轮对话中用 `$vibe-project-foundation` 调用。升级已有安装时，先将旧文件夹移到 Skills 目录外，再放入新版。
 
-- **统一的目录语义**：`docs/` 想清楚、`app/` 做出来、`design/` 长什么样、`scratch/` 做实验。
-- **统一的 AI 入口**：`CLAUDE.md` / `AGENTS.md` 都指向 `docs/agent-guide.md`，换工具不换规则。
-- **统一的开发合同**：`docs/spec.md` 是后续开发的唯一准绳，冲突时以它为准。
-- **Git 安全网**：初始化即建库并首次提交，`scratch/` 默认被忽略，随时能回滚。
+生成项目需要本机可用的 Bash、Python 3 和 Git。本版在 macOS、Python 3.9.6、Git 2.54.0 的环境中实测。
 
-## 安装
+## 第一次使用
 
-```bash
-mkdir -p ~/.codex/skills
-git clone https://github.com/AidenXu-1/vibe-project-foundation-skill.git ~/.codex/skills/vibe-project-foundation
-```
+在一个独立的新项目目录中，对 Codex 说：
 
-如果当前 Codex 环境不会自动热加载新 Skill，重启或刷新一下。
+> 用 $vibe-project-foundation 给我搭一个 Mac 备课夹的地基。我想把讲义关联到一节课，完全退出再打开，从那节课还能找到原讲义。这次先只搭地基。
 
-## 快速开始
+助手会把“退出、重开、回到同一节课、打开原讲义”写成后续开发可以照做的验收步骤。交接前，它会从本地保存的版本中重新读出需求和进度。此时 `app/` 里只有说明文件。等你要求继续开发，助手会从项目自己的工作入口接着做。
 
-### 方式一：让 Agent 调用 Skill
+| 你想知道什么 | 去哪里看 |
+| --- | --- |
+| 产品要做什么，怎样算做成 | [需求模板](templates/docs/spec.md)生成的 `docs/spec.md` |
+| 上次做到哪一步，接下来做什么 | [进度模板](templates/docs/progress.md)生成的 `docs/progress.md` |
+| 换一个 AI 助手，从哪里接手 | 项目根目录的 `AGENTS.md` 和 `CLAUDE.md` 都指向[同一份工作规则](templates/docs/agent-guide.md) |
+| 哪里放临时样本和实验记录 | `scratch/`，其中的实验文件会被 Git 忽略 |
 
-直接对 Codex 说：
+## 直接运行生成脚本
 
-```text
-帮我给这个新项目搭建一下地基。
-```
-
-或：
-
-```text
-我要开始一个新的 Vibe Coding 项目，先帮我初始化项目骨架。
-```
-
-Skill 会先确认两件事——项目名、一句话说明——然后铺设，不会在地基阶段替你选技术栈。
-
-### 方式二：直接跑脚本
+如果只需铺设项目文件，也可以在终端运行：
 
 ```bash
-bash scaffold.sh "/path/to/target" "项目名" "一句话说明"
+bash ~/.codex/skills/vibe-project-foundation/scaffold.sh ~/Projects/备课夹 "备课夹" "按课程保存和找回讲义"
 ```
 
-指定日期（默认取系统当天）：
+脚本会在目标目录保存并核对 21 个模板文件。它可以新建目录，也能复用尚无提交、暂存内容和其他文件的独立空 Git 仓库。目标须位于其他仓库之外，已有文件会保留。
 
-```bash
-bash scaffold.sh "/path/to/target" "项目名" "一句话说明" "2026-06-26"
-```
+如果脚本中途中断，解决提示的问题后，用同一版 Skill、同一目标和原参数重试。脚本已成功、只差整理需求时，直接接着交接。
 
-> 目标目录必须为空，脚本检测到非空会直接中止，不会覆盖已有项目。
+这个 Skill 适用于持续迭代的软件、插件、小程序和网站。项目已经有合适的工程骨架时，直接沿用。[完整使用说明](SKILL.md)
 
-## 会生成什么
-
-```text
-<项目>/
-├── AGENTS.md       # 通用 Agent 工作入口（Codex / Copilot 等）
-├── CLAUDE.md       # AI 工作入口（Claude Code 自动加载）
-├── README.md       # 人类入口与导航
-├── .gitignore
-├── docs/           # 想清楚
-│   ├── spec.md         # 开发合同，唯一准绳
-│   ├── agent-guide.md  # AI 实现取舍与设计预览规则
-│   ├── roadmap.md
-│   ├── progress.md
-│   ├── conventions.md
-│   ├── decisions/      # ADR 决策记录
-│   └── spec/           # 分模块 Spec
-├── app/            # 做出来（占位，待 Kickoff 后初始化）
-├── design/         # 长什么样：references / ui / assets
-└── scratch/        # 实验区（git 忽略）
-```
-
-脚本同时完成：复制模板 → 替换 `{{PROJECT_NAME}}` / `{{ONE_LINER}}` / `{{DATE}}` 占位符 → `git init` → 首次提交 → 排除 `.DS_Store` 等噪音。
-
-## 适用场景
-
-适合：
-
-- 全新的 Vibe Coding 项目。
-- 全新的软件产品 / 互联网产品 / 插件 / 小程序 / 网站系统。
-- 需要长期维护、持续迭代的可运行项目。
-- 开发前需要先写 Spec、做风险检查、排路线图的项目。
-
-不适合：
-
-- 已经有代码和历史结构的老项目（不要用它覆盖）。
-- 知识库搭建、Skill 开发等需要专用组织结构的任务。
-- 课程、内容、运营、咨询、调研等非软件项目。
-- 只想快速生成一次性 demo 的临时目录。
-
-## 仓库结构
-
-这个仓库只放"能直接用的 Skill"和这份说明，没有多余的脚手架文件：
-
-```text
-.
-├── SKILL.md            # Skill 的适用范围与执行步骤
-├── agents/openai.yaml  # 界面元数据：展示名、默认提示词
-├── scaffold.sh         # 一键铺地脚本
-├── templates/          # 项目骨架模板
-└── README.md           # 本文件
-```
-
-改模板只需编辑 `templates/` 下的文件，之后所有新项目都会继承。
-
-## License
+## 许可
 
 本仓库未附带 LICENSE 文件，默认保留所有权利。
